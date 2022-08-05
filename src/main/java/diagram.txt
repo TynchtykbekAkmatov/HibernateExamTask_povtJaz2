@@ -1,0 +1,26 @@
+
+
+
+
+
+        ┌──────────────────┐                  ┌──────────────────┐
+        │      Course      │                  │    Instructor    │
+        ├────┬─────────────┤  ManyToMany(bi)  ├────┬─────────────┤
+    ┌──>│ PK │ UniqueID    │─────────────────>│ PK │ UniqueID    │
+    │   ├────┼─────────────┤     new Table    ├────┼─────────────┤
+    │   │    │courseName   │                  │    │firstName    │
+    │   │    │duration     │                  │    │lastName     │
+    │   │    │createAt     │                  │    │email        │
+    │   │    │imageLink    │                  │    │phoneNumber  │
+    │   │    │description  │                  └──────────────────┘
+    │   └──────────────────┘
+ One│ToMany(Bi)
+    │   ┌──────────────────┐                  ┌──────────────────┐
+    │   │      Lesson      │                  │       Task       │
+    │   ├────┬─────────────┤                  ├────┬─────────────┤
+    │   │ PK │ UniqueID    ├─────────────────>│ PK │ UniqueID    │
+    │   ├────┼─────────────┤  OneToMany(uni)  ├────┼─────────────┤
+    │   │    │name         │                  │    │name         │
+    │   │    │videoLink    │                  │    │deadLine     │
+    └───┤    │course_id    │                  │    │String task  │
+        └──────────────────┘                  └──────────────────┘
